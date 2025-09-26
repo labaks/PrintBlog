@@ -6,15 +6,15 @@ import matter from 'gray-matter';
 
 export default function Home({ posts }) {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <>
       <Head>
         <title>Блог о 3D печати</title>
         <meta name="description" content="Модели, которые я напечатал на 3D принтере" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-2xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8">
+      <main className="container mx-auto px-4 py-8 max-w-2xl">
+        <h1 className="text-4xl font-bold text-center mb-8 text-ink-primary">
           Мои 3D-модели
         </h1>
 
@@ -23,15 +23,15 @@ export default function Home({ posts }) {
             <Link
               href={`/posts/${slug}`}
               key={slug}
-              className="block p-6 border border-gray-200 rounded-lg hover:shadow-lg hover:border-blue-500 transition"
+              className="block p-6 bg-surface-primary border border-frame-primary/50 rounded-lg hover:shadow-lg hover:border-ink-accent transition"
             >
-              <h2 className="text-2xl font-bold mb-2">{frontmatter.title}</h2>
-              <p className="text-gray-600">{frontmatter.date}</p>
+              <h2 className="text-2xl font-bold mb-2 text-ink-primary">{frontmatter.title}</h2>
+              <p className="text-ink-primary/70">{frontmatter.date}</p>
             </Link>
           ))}
         </div>
       </main>
-    </div>
+    </>
   );
 }
 

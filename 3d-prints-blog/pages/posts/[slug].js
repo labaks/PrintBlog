@@ -1,24 +1,38 @@
-import Head from 'next/head';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { marked } from 'marked';
+import Head from 'next/head';
+import Image from 'next/image';
 
-export default function PostPage({ frontmatter, content }) {
+export default function PostPage({ frontmatter: { title, date, image }, content }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <Head>
-        <title>{frontmatter.title}</title>
+        <title>{title} | Блог о 3D печати</title>
       </Head>
-      <main className="max-w-2xl mx-auto">
-        <article className="prose lg:prose-xl">
-          <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-          <p className="text-gray-500 mb-8">{frontmatter.date}</p>
-          {frontmatter.image && <img src={frontmatter.image} alt={frontmatter.title} className="w-full rounded-lg mb-8" />}
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </article>
-      </main>
+
+      <article className="max-w-3xl mx-auto bg-surface-primary p-8 rounded-lg shadow-md">
+        {image && (
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <Image
+              src={image}
+              alt={title}
+              width={800}
+              height={450}
+              className="w-full h-auto object-cover"
+              priority
+            />
+          </div>
+        )}
+        <h1 className="text-4xl font-bold mb-4 text-ink-primary">{title}</h1>
+        <p className="text-ink-primary/70 mb-8">{date}</p>
+
+        <div
+          className="prose prose-lg max-w-none prose-headings:text-ink-primary prose-p:text-ink-primary/90 prose-a:text-ink-accent hover:prose-a:text-ink-primary prose-strong:text-ink-primary prose-blockquote:border-l-frame-primary prose-blockquote:text-ink-primary/80 prose-code:text-ink-secondary prose-li::marker:text-frame-primary dark:prose-invert dark:prose-a:text-ink-accent dark:hover:prose-a:text-ink-accent-dark"
+          dangerouslySetInnerHTML={{ __html: marked(content) }}
+        ></div>
+      </article>
     </div>
   );
 }
@@ -34,7 +48,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false, // если slug не найден, будет 404
+    fallback: false,
   };
 }
 
@@ -46,14 +60,11 @@ export async function getStaticProps({ params: { slug } }) {
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
-  // Преобразуем Markdown в HTML
-  const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
-
   return {
     props: {
       frontmatter,
-      content: contentHtml,
+      slug,
+      content,
     },
   };
 }

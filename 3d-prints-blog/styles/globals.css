@@ -1,26 +1,28 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --colors-paper: #f2eee6;
+  --colors-paper-dark: #120f15;
+  --colors-ink-primary: #7a4f89;
+  --colors-ink-secondary: #cb8fcd;
+  --colors-ink-accent: #78c4c0;
+  --colors-ink-accent-dark: #e2b8b9;
+  --colors-frame-primary: #e2b8b9;
+  --colors-frame-secondary: #7a4f89;
+  --colors-surface-primary: #ffffff;
+  --colors-surface-primary-dark: #1c161f;
+
+  --ink-secondary: #cb8fcd;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark {
+  --colors-paper: var(--colors-paper-dark);
+  --colors-ink-primary: var(--ink-secondary);
+  --colors-ink-secondary: var(--colors-ink-primary);
+  --colors-ink-accent: var(--colors-ink-accent);
+  --colors-ink-accent-dark: var(--colors-ink-accent-dark);
+  --colors-frame-primary: var(--colors-frame-secondary);
+  --colors-frame-secondary: var(--colors-frame-primary);
+  --colors-surface-primary: var(--colors-surface-primary-dark);
 }

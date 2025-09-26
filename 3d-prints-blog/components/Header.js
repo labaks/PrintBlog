@@ -1,0 +1,23 @@
+import Link from 'next/link';
+import ThemeSwitcher from './ThemeSwitcher';
+
+const Header = () => {
+  return (
+    <header className="backdrop-blur-lg sticky top-0 z-10 border-b bg-surface-primary/80 border-frame-primary/50">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold text-ink-primary hover:text-ink-accent transition-colors">
+          3D Prints Blog
+        </Link>
+        <nav className="flex items-center gap-4">
+          <Link href="/" className="px-4 py-2 rounded-md transition-colors text-ink-primary/90 hover:text-ink-accent">
+            Главная
+          </Link>
+          {/* Здесь можно будет добавить другие ссылки, например, "Обо мне" */}
+          <ThemeSwitcher />
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
