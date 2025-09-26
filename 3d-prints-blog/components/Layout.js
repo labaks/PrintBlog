@@ -13,10 +13,6 @@ const Layout = ({ children }) => {
       <main className="flex-grow">
         {children}
       </main>
-      {/* 
-        Здесь мы вставляем рекламный блок. 
-        Не забудьте заменить ca-pub-XXXXXXXXXXXXXXXX и YYYYYYYYYY на ваши реальные данные от AdSense.
-      */}
       <div className="container mx-auto px-4">
         <AdBlock client="ca-pub-9677777917176715" slot="7325512253" />
       </div>
