@@ -33,7 +33,7 @@ const Header = () => {
                                 hover:text-ink-accent
                                 dark:text-ink-secondary/90
                                 dark:hover:text-ink-accent-dark">
-            Главная
+            Home
           </Link>
           {/* Здесь можно будет добавить другие ссылки, например, "Обо мне" */}
           <ThemeSwitcher />
