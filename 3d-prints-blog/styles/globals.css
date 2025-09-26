@@ -1,28 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --colors-paper: #f2eee6;
-  --colors-paper-dark: #120f15;
-  --colors-ink-primary: #7a4f89;
-  --colors-ink-secondary: #cb8fcd;
-  --colors-ink-accent: #78c4c0;
-  --colors-ink-accent-dark: #e2b8b9;
-  --colors-frame-primary: #e2b8b9;
-  --colors-frame-secondary: #7a4f89;
-  --colors-surface-primary: #ffffff;
-  --colors-surface-primary-dark: #1c161f;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --ink-secondary: #cb8fcd;
-}
-
-.dark {
-  --colors-paper: var(--colors-paper-dark);
-  --colors-ink-primary: var(--ink-secondary);
-  --colors-ink-secondary: var(--colors-ink-primary);
-  --colors-ink-accent: var(--colors-ink-accent);
-  --colors-ink-accent-dark: var(--colors-ink-accent-dark);
-  --colors-frame-primary: var(--colors-frame-secondary);
-  --colors-frame-secondary: var(--colors-frame-primary);
-  --colors-surface-primary: var(--colors-surface-primary-dark);
+@theme {
+  --color-paper: #f2eee6;
+  --color-paper-dark: #120f15;
+  --color-ink-primary: #7a4f89;
+  --color-ink-secondary: #cb8fcd;
+  --color-ink-accent: #78c4c0;
+  --color-ink-accent-dark: #e2b8b9;
+  --color-frame-primary: #e2b8b9;
+  --color-frame-secondary: #7a4f89;
+  --color-surface-primary: #ffffff;
+  --color-surface-primary-dark: #1c161f;
 }

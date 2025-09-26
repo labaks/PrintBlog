@@ -12,7 +12,7 @@ export default function PostPage({ frontmatter: { title, date, image }, content 
         <title>{title} | Блог о 3D печати</title>
       </Head>
 
-      <article className="max-w-3xl mx-auto bg-surface-primary p-8 rounded-lg shadow-md">
+      <article className="max-w-3xl mx-auto bg-surface-primary dark:bg-surface-primary-dark p-8 rounded-lg shadow-md">
         {image && (
           <div className="mb-8 rounded-lg overflow-hidden">
             <Image
@@ -25,11 +25,24 @@ export default function PostPage({ frontmatter: { title, date, image }, content 
             />
           </div>
         )}
-        <h1 className="text-4xl font-bold mb-4 text-ink-primary">{title}</h1>
-        <p className="text-ink-primary/70 mb-8">{date}</p>
+        <h1 className="text-4xl font-bold mb-4 text-ink-primary dark:text-ink-secondary">{title}</h1>
+        <p className="text-ink-primary/70 dark:text-ink-secondary/70 mb-8">{date}</p>
 
         <div
-          className="prose prose-lg max-w-none prose-headings:text-ink-primary prose-p:text-ink-primary/90 prose-a:text-ink-accent hover:prose-a:text-ink-primary prose-strong:text-ink-primary prose-blockquote:border-l-frame-primary prose-blockquote:text-ink-primary/80 prose-code:text-ink-secondary prose-li::marker:text-frame-primary dark:prose-invert dark:prose-a:text-ink-accent dark:hover:prose-a:text-ink-accent-dark"
+          className="
+                prose prose-lg max-w-none
+                prose-headings:text-ink-primary
+                prose-p:text-ink-primary/90
+                prose-a:text-ink-accent
+                hover:prose-a:text-ink-primary
+                prose-strong:text-ink-primary
+                prose-blockquote:border-l-frame-primary
+                prose-blockquote:text-ink-primary/80
+                prose-code:text-ink-secondary
+                prose-li::marker:text-frame-primary
+                dark:prose-invert
+                dark:prose-a:text-ink-accent
+                dark:hover:prose-a:text-ink-accent-dark"
           dangerouslySetInnerHTML={{ __html: marked(content) }}
         ></div>
       </article>

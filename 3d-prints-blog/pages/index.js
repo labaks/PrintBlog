@@ -8,14 +8,14 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>Блог о 3D печати</title>
-        <meta name="description" content="Модели, которые я напечатал на 3D принтере" />
+        <title>3D PLP Blog</title>
+        <meta name="description" content="Models, which I printed on a 3D printer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
-        <h1 className="text-4xl font-bold text-center mb-8 text-ink-primary">
-          Мои 3D-модели
+        <h1 className="text-4xl font-bold text-center mb-8 text-ink-primary dark:text-ink-secondary">
+          3D PLP Blog
         </h1>
 
         <div className="grid gap-6">
@@ -23,10 +23,16 @@ export default function Home({ posts }) {
             <Link
               href={`/posts/${slug}`}
               key={slug}
-              className="block p-6 bg-surface-primary border border-frame-primary/50 rounded-lg hover:shadow-lg hover:border-ink-accent transition"
-            >
-              <h2 className="text-2xl font-bold mb-2 text-ink-primary">{frontmatter.title}</h2>
-              <p className="text-ink-primary/70">{frontmatter.date}</p>
+              className="
+                    block p-6 border rounded-lg hover:shadow-lg transition
+                    bg-surface-primary
+                    dark:bg-surface-primary-dark
+                    border-frame-primary/50
+                    dark:border-frame-secondary/50
+                    hover:border-ink-accent
+                    dark:hover:border-ink-accent-dark">
+              <h2 className="text-2xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{frontmatter.title}</h2>
+              <p className="text-ink-primary/70 dark:text-ink-secondary/70">{frontmatter.date}</p>
             </Link>
           ))}
         </div>

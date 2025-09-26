@@ -38,10 +38,13 @@ const ThemeSwitcher = () => {
     <button
       aria-label="Toggle Dark Mode"
       type="button"
-      className="p-2 rounded-md text-ink-primary/90 hover:text-ink-accent"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-
-    >
+      className="
+            p-2 rounded-md
+            text-ink-primary/90
+            hover:text-ink-accent
+            dark:text-ink-secondary/90
+            dark:hover:text-ink-accent-dark"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
       {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
     </button>
   );
