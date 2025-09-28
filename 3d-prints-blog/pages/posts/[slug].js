@@ -4,17 +4,21 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { faFaceFrownOpen} from '@fortawesome/free-regular-svg-icons';
 
-export default function PostPage({ frontmatter: { title, date, image }, content }) {
+export default function PostPage({ frontmatter: { title, date, image, link, source, youtube, tiktok }, content }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <Head>
-        <title>{title} | Блог о 3D печати</title>
+        <title>{title} | 3D PLP Blog</title>
       </Head>
 
-      <article className="max-w-3xl mx-auto bg-surface-primary dark:bg-surface-primary-dark p-8 rounded-lg shadow-md">
+      <article className="max-w-3xl mx-auto bg-surface-primary dark:bg-surface-primary-dark p-5 rounded-lg shadow-md">
         {image && (
-          <div className="mb-8 rounded-lg overflow-hidden">
+          <div className="mb-4 rounded-lg overflow-hidden">
             <Image
               src={image}
               alt={title}
@@ -25,8 +29,51 @@ export default function PostPage({ frontmatter: { title, date, image }, content 
             />
           </div>
         )}
-        <h1 className="text-4xl font-bold mb-4 text-ink-primary dark:text-ink-secondary">{title}</h1>
-        <p className="text-ink-primary/70 dark:text-ink-secondary/70 mb-8">{date}</p>
+        <h1 className="text-4xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{title}</h1>
+        <p className="text-ink-primary/70 dark:text-ink-secondary/70 mb-2 text-right">{date}</p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+          <div className="w-full sm:w-auto">
+            {source === 'makerworld' && (
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link makerworld-link">
+                <Image src="/images/icons/makerworld.svg" alt="MakerWorld" width={24} height={24} /> Download from MakerWorld
+              </Link>
+            )}
+            {source === 'thingiverse' && (
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link thingiverse-link">
+                <Image src="/images/icons/thingiverse.svg" alt="Thingiverse" width={24} height={24} /> Download from Thingiverse
+              </Link>
+            )}
+            {source === 'printables' && (
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link printables-link">
+                <Image src="/images/icons/printables.svg" alt="Printables" width={24} height={24} /> Download from Printables
+              </Link>
+            )}
+            {source === 'thangs' && (
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link thangs-link">
+                <Image src="/images/icons/thangs.svg" alt="Thangs" width={24} height={24} /> Download from Thangs
+              </Link>
+            )}
+            {source === 'cults' && (
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link cults-link">
+                <Image src="/images/icons/cults.svg" alt="Cults3D" width={24} height={24} /> Download from Cults3D
+              </Link>
+            )}
+            {source === 'none' && (
+              <span className="flex items-center justify-center sm:justify-start gap-2 text-ink-primary/70 dark:text-ink-secondary/70 download-link unavailable-link">
+                <FontAwesomeIcon icon={faFaceFrownOpen} className="w-8 h-8" /> Model is unavailable for download
+              </span>
+            )}
+          </div>
+          <div className="flex justify-center gap-4 sm:ml-auto">
+            <Link href={youtube} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline youtube-link">
+              <FontAwesomeIcon icon={faYoutube} className="w-9 h-9" /> YouTube
+            </Link>
+            <Link href={tiktok} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline tiktok-link">
+              <FontAwesomeIcon icon={faTiktok} className="w-6 h-6" /> TikTok
+            </Link>
+          </div>
+        </div>
+
 
         <div
           className="

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import Image from 'next/image';
 
 export default function Home({ posts }) {
   return (
@@ -24,15 +25,25 @@ export default function Home({ posts }) {
               href={`/posts/${slug}`}
               key={slug}
               className="
-                    block p-6 border rounded-lg hover:shadow-lg transition
+                    block border rounded-lg hover:shadow-lg transition
                     bg-surface-primary
                     dark:bg-surface-primary-dark
                     border-frame-primary/50
                     dark:border-frame-secondary/50
                     hover:border-ink-accent
                     dark:hover:border-ink-accent-dark">
-              <h2 className="text-2xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{frontmatter.title}</h2>
-              <p className="text-ink-primary/70 dark:text-ink-secondary/70">{frontmatter.date}</p>
+              <Image
+                src={frontmatter.image}
+                alt={frontmatter.title}
+                width={800}
+                height={450}
+                className="w-full h-auto object-cover rounded-t-lg"
+                priority
+              />
+              <div className="p-3">
+                <h2 className="text-2xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{frontmatter.title}</h2>
+                <p className="text-ink-primary/70 dark:text-ink-secondary/70">{frontmatter.date}</p>
+              </div>
             </Link>
           ))}
         </div>

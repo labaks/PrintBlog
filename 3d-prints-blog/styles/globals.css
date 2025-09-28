@@ -15,3 +15,19 @@
   --color-surface-primary: #ffffff;
   --color-surface-primary-dark: #1c161f;
 }
+
+.download-link {
+  @apply flex mt-4 px-4 py-2 bg-ink-accent text-white rounded hover:bg-ink-accent-dark transition;
+}
+
+.unavailable-link {
+  @apply bg-ink-secondary/10 dark:bg-ink-secondary/10 font-medium text-ink-primary/70 dark:text-ink-secondary/70 cursor-not-allowed;
+}
+
+.youtube-link {
+  @apply text-red-600 dark:text-red-500 border border-red-600 dark:border-red-500 rounded-md px-4 py-2 hover:bg-red-600 dark:hover:bg-red-500 hover:text-white transition;
+}
+
+.tiktok-link {
+  @apply text-black dark:text-white border border-black dark:border-white rounded-md px-4 py-2 hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition;
+}
