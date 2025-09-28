@@ -14,12 +14,12 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto px-4 py-8 max-w-2xl">
+      <main className="container mx-auto px-4 py-8 max-w-5xl">
         <h1 className="text-4xl font-bold text-center mb-8 text-ink-primary dark:text-ink-secondary">
           3D PLP Blog
         </h1>
 
-        <div className="grid gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
           {posts.map(({ slug, frontmatter }) => (
             <Link
               href={`/posts/${slug}`}
@@ -35,14 +35,14 @@ export default function Home({ posts }) {
               <Image
                 src={frontmatter.image}
                 alt={frontmatter.title}
-                width={800}
+                width={450}
                 height={450}
-                className="w-full h-auto object-cover rounded-t-lg"
+                className="object-cover rounded-t-lg aspect-square"
                 priority
               />
               <div className="p-3">
                 <h2 className="text-2xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{frontmatter.title}</h2>
-                <p className="text-ink-primary/70 dark:text-ink-secondary/70">{frontmatter.date}</p>
+                <p className="text-ink-primary/70 dark:text-ink-secondary/70">{new Date(frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
               </div>
             </Link>
           ))}

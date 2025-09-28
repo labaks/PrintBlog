@@ -17,7 +17,7 @@
 }
 
 .download-link {
-  @apply flex mt-4 px-4 py-2 bg-ink-accent text-white rounded hover:bg-ink-accent-dark transition;
+  @apply flex mt-4 px-4 py-2 bg-ink-accent text-white rounded hover:bg-surface-primary hover:text-ink-accent transition border border-ink-primary hover:border-ink-accent-dark font-medium;
 }
 
 .unavailable-link {
