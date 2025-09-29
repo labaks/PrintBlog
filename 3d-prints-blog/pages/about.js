@@ -26,7 +26,7 @@ export default function About() {
             Hello!
           </h1>
           <p className="text-lg text-ink-primary/90 dark:text-ink-secondary/90 mb-8 text-center">
-            I'm the author of this blog and I'm passionate about 3D printing. Here I share the models I've printed and my experiences. Thanks for stopping by!
+            I&apos;m the author of this blog and I&apos;m passionate about 3D printing. Here I share the models I&apos;ve printed and my experiences. Thanks for stopping by!
           </p>
 
           <div className="border-t border-frame-primary/50 dark:border-frame-secondary/50 my-8"></div>
