@@ -35,7 +35,14 @@ const Header = () => {
                                 dark:hover:text-ink-accent-dark">
             Home
           </Link>
-          {/* Здесь можно будет добавить другие ссылки, например, "Обо мне" */}
+          <Link href="/about" className="
+                                px-4 py-2 rounded-md transition-colors
+                                text-ink-primary/90
+                                hover:text-ink-accent
+                                dark:text-ink-secondary/90
+                                dark:hover:text-ink-accent-dark">
+            About
+          </Link>
           <ThemeSwitcher />
         </nav>
       </div>

@@ -32,14 +32,16 @@ export default function Home({ posts }) {
                     dark:border-frame-secondary/50
                     hover:border-ink-accent
                     dark:hover:border-ink-accent-dark">
-              <Image
-                src={frontmatter.image}
-                alt={frontmatter.title}
-                width={450}
-                height={450}
-                className="object-cover rounded-t-lg aspect-square"
-                priority
-              />
+              <div className='justify-center flex'>
+                <Image
+                  src={frontmatter.image}
+                  alt={frontmatter.title}
+                  width={490}
+                  height={490}
+                  className="object-cover rounded-t-lg aspect-square"
+                  priority
+                />
+              </div>
               <div className="p-3">
                 <h2 className="text-2xl font-bold mb-2 text-ink-primary dark:text-ink-secondary">{frontmatter.title}</h2>
                 <p className="text-ink-primary/70 dark:text-ink-secondary/70">{new Date(frontmatter.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>

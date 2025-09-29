@@ -18,13 +18,13 @@ export default function PostPage({ frontmatter: { title, date, image, authorname
 
       <article className="max-w-3xl mx-auto bg-surface-primary dark:bg-surface-primary-dark p-5 rounded-lg shadow-md">
         {image && (
-          <div className="mb-4 rounded-lg overflow-hidden">
+          <div className="flex justify-center mb-4">
             <Image
               src={image}
               alt={title}
               width={450}
               height={450}
-              className="object-cover aspect-square"
+              className="object-cover aspect-square rounded-lg"
               priority
             />
           </div>
@@ -37,27 +37,27 @@ export default function PostPage({ frontmatter: { title, date, image, authorname
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
           <div className="w-full sm:w-auto">
             {source === 'makerworld' && (
-              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link makerworld-link">
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark download-link makerworld-link">
                 <Image src="/images/icons/makerworld.png" alt="MakerWorld" width={30} height={30} /> Download from MakerWorld
               </Link>
             )}
             {source === 'thingiverse' && (
-              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link thingiverse-link">
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark download-link thingiverse-link">
                 <Image src="/images/icons/thingiverse.png" alt="Thingiverse" width={30} height={30} /> Download from Thingiverse
               </Link>
             )}
             {source === 'printables' && (
-              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link printables-link">
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark download-link printables-link">
                 <Image src="/images/icons/printables.png" alt="Printables" width={30} height={30} /> Download from Printables
               </Link>
             )}
             {source === 'thangs' && (
-              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link thangs-link">
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark download-link thangs-link">
                 <Image src="/images/icons/thangs.png" alt="Thangs" width={30} height={30} /> Download from Thangs
               </Link>
             )}
             {source === 'cults' && (
-              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline download-link cults-link">
+              <Link href={link} className="flex items-center justify-center sm:justify-start gap-2 text-ink-accent dark:text-ink-accent-dark download-link cults-link">
                 <Image src="/images/icons/cults.png" alt="Cults3D" width={30} height={30} /> Download from Cults3D
               </Link>
             )}
@@ -68,10 +68,10 @@ export default function PostPage({ frontmatter: { title, date, image, authorname
             )}
           </div>
           <div className="flex justify-center gap-4 sm:ml-auto">
-            <Link href={youtube} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline youtube-link">
+            <Link href={youtube} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark youtube-link">
               <FontAwesomeIcon icon={faYoutube} className="w-9 h-9" /> YouTube
             </Link>
-            <Link href={tiktok} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark hover:underline tiktok-link">
+            <Link href={tiktok} className="flex flex-1 items-center justify-center gap-2 text-ink-accent dark:text-ink-accent-dark tiktok-link">
               <FontAwesomeIcon icon={faTiktok} className="w-6 h-6" /> TikTok
             </Link>
           </div>

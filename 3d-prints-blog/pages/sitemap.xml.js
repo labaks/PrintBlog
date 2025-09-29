@@ -7,16 +7,15 @@ const generateSiteMap = (posts) => {
 
   // Статические страницы (главная, "обо мне" и т.д.)
   const staticPages = [
-    '/'
-    // Если у вас есть другие статические страницы, добавьте их сюда
-    // например, '/about', '/contact'
+    '/',
+    '/about'
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${staticPages
-    .map((url) => {
-      return `
+      .map((url) => {
+        return `
         <url>
           <loc>${baseUrl}${url}</loc>
           <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
@@ -24,11 +23,11 @@ const generateSiteMap = (posts) => {
           <priority>1.0</priority>
         </url>
       `;
-    })
-    .join('')}
+      })
+      .join('')}
   ${posts
-    .map(({ slug, frontmatter }) => {
-      return `
+      .map(({ slug, frontmatter }) => {
+        return `
         <url>
           <loc>${baseUrl}/posts/${slug}</loc>
           <lastmod>${new Date(frontmatter.date).toISOString().split('T')[0]}</lastmod>
@@ -36,8 +35,8 @@ const generateSiteMap = (posts) => {
           <priority>0.8</priority>
         </url>
       `;
-    })
-    .join('')}
+      })
+      .join('')}
 </urlset>
 `;
 
