@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faFaceFrownOpen } from '@fortawesome/free-regular-svg-icons';
+import AdBlock from '../../components/AdBlock';
 
 export default function PostPage({ frontmatter: { title, date, image, authorname, authorlink, link, source, youtube, tiktok }, content }) {
   return (
@@ -95,6 +96,7 @@ export default function PostPage({ frontmatter: { title, date, image, authorname
                 dark:hover:prose-a:text-ink-accent-dark"
           dangerouslySetInnerHTML={{ __html: marked(content) }}
         ></div>
+        <AdBlock client="ca-pub-9677777917176715" slot="7325512253" />
       </article>
     </div>
   );
